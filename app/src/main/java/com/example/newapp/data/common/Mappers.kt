@@ -5,13 +5,13 @@ import com.example.newapp.data.model.ArticlesAPIItem
 import com.example.newapp.data.model.HeadlinesAPIResponse
 import com.example.newapp.data.model.SourceAPI
 import com.example.newapp.domain.model.ArticlesItem
-import com.example.newapp.domain.model.HeadlineResponse
+import com.example.newapp.domain.model.HeadlineResponseDTO
 import com.example.newapp.domain.model.Source
 
-class Mappers {
 
-    fun HeadlinesAPIResponse.toDomain(): HeadlineResponse {
-        return HeadlineResponse(
+
+    fun HeadlinesAPIResponse.toDomain(): HeadlineResponseDTO {
+        return HeadlineResponseDTO(
             totalResults ?: 0,
             articles?.map { it.toDomain() } ?: emptyList(),
             status ?: ""
@@ -37,4 +37,3 @@ class Mappers {
             id = id ?: ""
         )
     }
-}

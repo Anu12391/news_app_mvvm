@@ -3,7 +3,7 @@ package com.example.newapp.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-data class HeadlineResponse(
+data class HeadlineResponseDTO(
     @field:SerializedName("totalResults")
     val totalResults: Int,
 
