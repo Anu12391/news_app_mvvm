@@ -1,7 +1,8 @@
 package com.example.newapp.data.common
 
-sealed class Resource<out T>(val message: String? = null, val data: T? = null) {
+sealed class Resource<out T>(message: String? = null, data: T? = null) {
     class Loading<T> : Resource<T>()
-    class Success<T>(data:T?) : Resource<T>(data=data)
-    class Error<T>(data:T?=null,message:String?) : Resource<T>(data=data, message = message)
+    class Success<T>(val data: T?) : Resource<T>(data = data)
+    class Error<T>(val data: T? = null, val message: String?) :
+        Resource<T>(data = data, message = message)
 }

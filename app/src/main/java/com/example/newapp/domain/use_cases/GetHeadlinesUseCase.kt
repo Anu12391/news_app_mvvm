@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import java.lang.Exception
 
-class GetHeadlinesUseCase(val headlineArticleRepository: HeadlineArticleRepository) {
+class GetHeadlinesUseCase(private val headlineArticleRepository: HeadlineArticleRepository) {
     operator fun invoke(): Flow<Resource<List<HeadlineResponseDTO>>> = flow {
         emit(Resource.Loading())
         try {
