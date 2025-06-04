@@ -15,7 +15,7 @@ fun Navigation() {
         startDestination = NavigationItem.HeadlineNavigationItem.route
     ) {
         composable(NavigationItem.HeadlineDetailsNavigationItem.route){
-          
+
         }
 
         composable(NavigationItem.HeadlineNavigationItem.route){
