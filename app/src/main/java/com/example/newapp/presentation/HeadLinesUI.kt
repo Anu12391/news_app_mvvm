@@ -33,10 +33,6 @@ fun HeadLinesUI(headLineViewModel: HeadlinesViewmodel = hiltViewModel()) {
         }
 
     }
-
-
-
-
     res.data?.get(0)?.let {
 
         LazyColumn {
