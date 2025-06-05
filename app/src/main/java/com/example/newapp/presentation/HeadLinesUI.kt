@@ -3,6 +3,7 @@ package com.example.newapp.presentation
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -17,12 +18,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.newapp.domain.model.ArticlesItem
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HeadLinesUI(headLineViewModel: HeadlinesViewmodel = hiltViewModel()) {
+fun HeadLinesUI(
+    navController: NavController,
+    headLineViewModel: HeadlinesViewmodel = hiltViewModel()
+) {
     val res = headLineViewModel.list.value
     Scaffold(topBar = { TopAppBar(title = { Text("List") }) }) {
 
@@ -45,7 +50,7 @@ fun HeadLinesUI(headLineViewModel: HeadlinesViewmodel = hiltViewModel()) {
 
             LazyColumn {
                 items(it.articles) {
-                    HeadlineListItem(articleItem = it)
+                    HeadlineListItem(articleItem = it, onClick = {"hii"})
                 }
             }
         }
@@ -55,8 +60,10 @@ fun HeadLinesUI(headLineViewModel: HeadlinesViewmodel = hiltViewModel()) {
 }
 
 @Composable
-fun HeadlineListItem(articleItem: ArticlesItem) {
-    Card(modifier = Modifier.padding(8.dp)) {
+fun HeadlineListItem(articleItem: ArticlesItem, onClick: (String) -> Unit) {
+    Card(modifier = Modifier
+        .padding(8.dp)
+        .fillMaxWidth()) {
         Text(text = articleItem.title)
     }
 }

@@ -19,7 +19,7 @@ fun Navigation() {
         }
 
         composable(NavigationItem.HeadlineNavigationItem.route){
-            HeadLinesUI()
+            HeadLinesUI(navController)
         }
     }
 
